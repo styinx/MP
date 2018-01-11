@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
+        <link rel="stylesheet" type="text/css" href="css/music-player.css"/>
+        <link rel="stylesheet" type="text/css" href="css/jquery.css"/>
+        <script src="js/jquery/jquery-3.2.1.min.js"></script>
+        <script src="js/jquery/jquery.tablesorter.min.js"></script>
+        <script type="text/javascript" src="js/source/MediaPlayer.js"></script>
+        <script type="text/javascript" src="js/include/http.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+        <script type="text/javascript">
+            $(document).ready
+            (
+                function()
+                {
+                    loadSession();
+                    MP.init(document.getElementById('media'));
+                    updateUI();
+                }
+            );
+            $(window).on('unload', function()
+            {
+                saveSession();
+            });
+            saveSession();
+        </script>
+    </head>
+    <body onload="loadLibrary();">
+        <div class="page">
+            <div class="layout">
+                <div class="tr expand flex90">
+                    <div class="td reduce">
+                        <div class="side-bar">
+                            <!--DB<button onclick="setupLibrary();">load</button><button>delete</button>-->
+                            <div id="status"></div>
+                            <input id="query" oninput="reloadLibrary();" type="text"/>
+                        </div>
+                    </div>
+                    <div class="td expand music-library mCustomScrollbar">
+                        <table class="tablesorter" id="library">
+                            <div class="context-menu">
+                                <div class="submenu">Edit Metadata</div>
+                                <div class="submenu">Web search</div>
+                            </div>
+                            <tbody>
+                                <tr class="selected"><td>dummy</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tr reduce flex10 center music-player-nav">
+                    <div class="music-player-nav-panel center">
+                        <div class="flex25 music-player-nav-title"></div>
+                        <div class="center flex80">
+                            <button id="previous" class="music-player-nav-button-small" onclick="MP.previousTrack();"></button>
+                            <button id="backwards" class="music-player-nav-button-small" onclick="MP.backward();"></button>
+                            <button id="playback" class="music-player-nav-button-big" onclick="MP.playback();"></button>
+                            <button id="forward" class="music-player-nav-button-small" onclick="MP.forward();"></button>
+                            <button id="next" class="music-player-nav-button-small" onclick="MP.nextTrack();"></button>
+                            <div class="music-player-nav-separator"></div>
+                            <button id="shuffle" class="music-player-nav-button-small" onclick=""></button>
+                            <button id="repeat" class="music-player-nav-button-small" onclick=""></button>
+                            <audio id="media"></audio>
+                        </div>
+                        <div class="volume-range">
+                            <input type="range" oninput="MP.setVolume(this.value);" class="flex25 media-volume" min="0" max="1" step="any"/>
+                            <div class="media-volume-shadow"></div>
+                        </div>
+                    </div>
+                    <div class="music-player-nav-panel tr">
+                        <div id="time-expired" class="music-player-nav-label">0:00</div>
+                        <div class="progress-range">
+                            <div class="media-progress-shadow"></div>
+                            <input type="range" oninput="MP.setProgress(this.value);" class="media-progress" min="0" max="100" value="0" step="any"/>
+                        </div>
+                        <div id="time-left" class="music-player-nav-label">0:00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,150 @@
+html, body
+{
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+
+}
+
+.page
+{
+
+}
+
+.layout
+{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.tr
+{
+    display: inline-flex;
+    flex: 1;
+    flex-direction: row;
+}
+
+.td
+{
+    display: inline-flex;
+    flex: 1;
+    flex-direction: row;
+}
+
+.expand
+{
+    flex-grow: 1;
+    flex-basis: 90%;
+}
+
+.reduce
+{
+    flex-grow: 0;
+}
+
+.flex10
+{
+    flex-basis: 10%;
+}
+
+.flex20
+{
+    flex-basis: 20%;
+}
+
+.flex25
+{
+    flex-basis: 25%;
+}
+
+.flex30
+{
+    flex-basis: 30%;
+}
+
+.flex40
+{
+    flex-basis: 40%;
+}
+
+.flex80
+{
+    flex-basis: 80%;
+}
+
+.flex90
+{
+    flex-basis: 90%;
+}
+
+.flex100
+{
+    flex-basis: 100%;
+}
+
+.center
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden
+{
+    display: none;
+}
+
+.block
+{
+    display: block;
+}
+
+.flex
+{
+    display: inline-flex;
+}
+
+.col
+{
+    flex-direction: column;
+}
+
+.row
+{
+    flex-direction: row;
+}
+
+.left
+{
+    float: left;
+}
+
+.right
+{
+    float: right;
+}
+
+.context-menu
+{
+    position: absolute;
+    display: none;
+    border: 1px solid #0099FF;
+    color: white;
+    background: rgba(100, 100, 100, 200);
+}
+
+.context-menu .submenu
+{
+    padding: 5px;
+    border: 1px solid black;
+    cursor: pointer;
+}
